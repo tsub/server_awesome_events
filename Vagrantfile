@@ -79,7 +79,7 @@ Vagrant.configure(2) do |config|
     chef.add_recipe 'build-essential'
     chef.add_recipe 'memcached'
     chef.add_recipe 'nodejs'
-    chef.add_recipe 'database'
+    chef.add_recipe 'database::sqlite'
     chef.add_recipe 'xml'
     chef.add_recipe 'nginx'
   end
