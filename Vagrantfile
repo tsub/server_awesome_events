@@ -73,7 +73,7 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get install -y apache2
   # SHELL
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = ['./cookbooks']
+    chef.cookbooks_path = ['./cookbooks', './site-cookbooks']
 
     chef.add_recipe 'git'
     chef.add_recipe 'build-essential'
@@ -82,6 +82,7 @@ Vagrant.configure(2) do |config|
     chef.add_recipe 'database::sqlite'
     chef.add_recipe 'xml'
     chef.add_recipe 'nginx'
+    chef.add_recipe 'rails_book_cookbook::ops_user'
   end
 
   config.omnibus.chef_version = :latest
