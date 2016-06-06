@@ -64,4 +64,4 @@ bin/*
 .kitchen/
 .kitchen.local.yml
 
-
+site-cookbooks/rails_book_cookbook/files/default/id_rsa
