@@ -52,3 +52,16 @@ build-iPhoneSimulator/
 .rvmrc
 
 
+### https://raw.github.com/github/gitignore/8f35779cefbabdca21cfc4cda55abb1290d59fd9/ChefCookbook.gitignore
+
+.vagrant
+/cookbooks
+
+# Bundler
+bin/*
+.bundle/*
+
+.kitchen/
+.kitchen.local.yml
+
+
