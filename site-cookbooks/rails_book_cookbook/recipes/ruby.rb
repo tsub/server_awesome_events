@@ -54,14 +54,6 @@ bash 'install ruby' do
   not_if { File.exists?('/home/ops/.rbenv/versions/2.3.1') }
 end
 
-bash 'install bundler' do
-  user 'ops'
-  group 'ops'
-  environment 'HOME' => '/home/ops'
-  code <<-EOC
-    export PATH="/home/ops/.rbenv/bin:$PATH"
-    eval "$(rbenv init -)"
-    gem install --no-document bundler
-  EOC
-  not_if { File.exists?('/home/ops/.rbenv/versions/2.3.1/bin/bundle') }
+gem_package 'bundler' do
+  gem_binary '/home/ops/.rbenv/versions/2.3.1/bin/gem'
 end
