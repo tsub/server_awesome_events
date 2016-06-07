@@ -39,6 +39,7 @@ bash 'insert_line_rbenvpath' do
     chmod 777 ~/.bashrc
     source ~/.bashrc
   EOS
+  not_if 'grep rbenv ~/.bashrc', environment: { 'HOME' => '/home/ops' }
 end
 
 bash 'install ruby' do
@@ -50,6 +51,7 @@ bash 'install ruby' do
     /home/ops/.rbenv/bin/rbenv rehash
     /home/ops/.rbenv/bin/rbenv global 2.3.1
   EOS
+  not_if { File.exists?('/home/ops/.rbenv/versions/2.3.1') }
 end
 
 bash 'install bundler' do
@@ -61,4 +63,5 @@ bash 'install bundler' do
     eval "$(rbenv init -)"
     gem install --no-document bundler
   EOC
+  not_if { File.exists?('/home/ops/.rbenv/versions/2.3.1/bin/bundle') }
 end
