@@ -209,6 +209,8 @@ DEPENDENCIES
   berkshelf
   chef
   knife-solo
+  rspec
+  serverspec
 
 BUNDLED WITH
    1.12.5
